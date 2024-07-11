@@ -5,7 +5,14 @@ import puppeteer from 'puppeteer';
 import cors from 'cors';
 const app = express();
 app.use(express.json());
-app.use(cors()); 
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 const PORT = 3002;
 app.get('/',async(req,res)=>{
   res.send(':-=)')
