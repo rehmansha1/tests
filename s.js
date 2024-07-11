@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors()); 
 const PORT = 3002;
+app.get('/',async(req,res)=>{
+  res.send(':-=)')
+})
 app.get("/getall", async (req, res) => {
 
   const browser = await puppeteer.launch();
