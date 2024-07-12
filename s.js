@@ -18,12 +18,7 @@ app.get('/',async(req,res)=>{
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://www.serializd.com/show/Kaiju-No.-8-207468');
-
-  const screenshotBuffer = await page.screenshot();
-
-  res.set('Content-Type', 'image/png');
-  res.status(200).send(screenshotBuffer);
+  res.send('opened')
   await browser.close()
 })
 app.get("/getall", async (req, res) => {
